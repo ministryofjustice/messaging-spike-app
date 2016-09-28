@@ -1,0 +1,18 @@
+# Ignore local rspec config
+/.rspec-local
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/log/*.output
+/tmp
+
+# ignore simplecov output
+/coverage
+
+.DS_Store
+
+.idea
+*local.yml

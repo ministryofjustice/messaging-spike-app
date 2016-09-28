@@ -1,0 +1,4 @@
+autoload_rails: false
+require_paths:
+  - config/environment.rb
+  - lib/messaging/consumers/test_consumer.rb
