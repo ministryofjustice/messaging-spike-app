@@ -5,6 +5,12 @@ brew install rabbitmq
 brew services start rabbitmq
 ```
 
+#### Start redis server
+
+```sh
+redis-server
+```
+
 #### Start the app
 
 In the app directory:
