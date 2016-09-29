@@ -2,6 +2,18 @@ module Messaging
   class Message
     LIMIT = 5
 
+    def initialize(payload)
+      @payload = payload
+    end
+
+    def publish!
+      Messaging::TestProducer.publish(@payload)
+    end
+
+    def process!
+      self.class.push(@payload)
+    end
+
     class << self
       def list(limit = LIMIT)
         redis.lrange(key, 0, limit-1).map do |payload|

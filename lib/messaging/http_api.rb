@@ -7,18 +7,20 @@ module Messaging
     version 'v1', using: :path
     prefix 'api'
 
-    desc 'Get latest messages'
-    get :messages do
-      {messages: Messaging::Message.list}
-    end
+    namespace :messages do
+      desc 'Get latest messages'
+      get do
+        {messages: Messaging::Message.list}
+      end
 
-    desc 'Publish a new message'
-    params do
-      requires :payload, type: Hash
-    end
-    post :messages do
-      Messaging::TestProducer.publish(params.payload)
-      status 201
+      desc 'Publish a new message'
+      params do
+        requires :payload, type: Hash
+      end
+      post do
+        Messaging::Message.new(params.payload).publish!
+        status 201
+      end
     end
   end
 end

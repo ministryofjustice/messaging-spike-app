@@ -4,15 +4,7 @@ module Messaging
   class App
     class << self
       def start!
-        configure
-        run
-      end
-
-      def configure
-      end
-
-      def run
-        Puma::CLI.new(['-p', Settings.port]).run
+        Puma::CLI.new(['-p', Settings.app_port]).run
       end
     end
   end

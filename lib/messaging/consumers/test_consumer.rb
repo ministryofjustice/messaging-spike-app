@@ -6,7 +6,7 @@ module Messaging
     queue_name Settings.queue_name
 
     def process(msg)
-      Messaging::Message.push(msg.payload)
+      Messaging::Message.new(msg.payload).process!
     end
   end
 end
